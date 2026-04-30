@@ -7,8 +7,7 @@
     
     <!-- FACEBOOK PIXEL START -->
     <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
@@ -19,103 +18,178 @@
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=602816120339079&ev=PageView&noscript=1"
-    /></noscript>
+    src="https://www.facebook.com/tr?id=602816120339079&ev=PageView&noscript=1"/></noscript>
     <!-- FACEBOOK PIXEL END -->
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-deep: #0B0D17; --bg-card: #1A1E2E;
             --accent-purple: #6C5DD3; --accent-cyan: #00D4FF;
-            --accent-green: #00F9A3; --text-white: #FFFFFF;
-            --text-muted: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --accent-green: #00F9A3; --error-red: #FF4757;
+            --text-white: #FFFFFF; --text-muted: rgba(255,255,255,0.6);
+            --glass-border: rgba(255,255,255,0.08);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        * { margin:0; padding:0; box-sizing:border-box; }
+        
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            background: radial-gradient(circle at top right, rgba(108, 93, 211, 0.15), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(0, 212, 255, 0.1), transparent 40%),
-                        var(--bg-deep);
-            min-height: 100vh;
-            display: flex; align-items: center; justify-content: center;
-            padding: 20px; color: var(--text-white);
+            font-family:'Inter',sans-serif; background:var(--bg-deep);
+            background:radial-gradient(circle at top right,rgba(108,93,211,0.15),transparent 40%),
+                       radial-gradient(circle at bottom left,rgba(0,212,255,0.1),transparent 40%),
+                       var(--bg-deep);
+            min-height:100vh; display:flex; align-items:center; justify-content:center;
+            padding:20px; color:var(--text-white);
         }
+
         .container {
-            width: 100%; max-width: 560px;
-            background: var(--bg-card); border: 1px solid var(--glass-border);
-            border-radius: 24px; padding: 48px 40px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-            position: relative; overflow: hidden;
+            width:100%; max-width:560px; background:var(--bg-card);
+            border:1px solid var(--glass-border); border-radius:24px;
+            padding:48px 40px; box-shadow:0 40px 80px rgba(0,0,0,0.5);
+            position:relative; overflow:hidden;
         }
+
         .container::before {
-            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-            width: 60%; height: 1px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-            box-shadow: 0 0 15px var(--accent-cyan);
+            content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+            width:60%; height:1px;
+            background:linear-gradient(90deg,transparent,var(--accent-cyan),transparent);
+            box-shadow:0 0 15px var(--accent-cyan);
         }
-        .logo-row { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
-        .brand-logo { width: 48px; height: 48px; object-fit: contain; filter: drop-shadow(0 0 10px rgba(108, 93, 211, 0.5)); }
-        .logo-text { font-family: 'Manrope', sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.5px; }
+
+        .logo-row { display:flex; align-items:center; gap:16px; margin-bottom:32px; }
+        .brand-logo { width:48px; height:48px; object-fit:contain; filter:drop-shadow(0 0 10px rgba(108,93,211,0.5)); }
+        .logo-text { font-family:'Manrope',sans-serif; font-size:32px; font-weight:800; letter-spacing:-0.5px; }
+        
         .badge {
-            display: inline-flex; align-items: center; padding: 6px 14px; border-radius: 100px;
-            font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-            margin-bottom: 24px; background: rgba(108, 93, 211, 0.15);
-            border: 1px solid rgba(108, 93, 211, 0.4); color: var(--accent-purple);
+            display:inline-flex; align-items:center; padding:6px 14px; border-radius:100px;
+            font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:1px;
+            margin-bottom:24px; background:rgba(108,93,211,0.15);
+            border:1px solid rgba(108,93,211,0.4); color:var(--accent-purple);
         }
-        h1 { font-family: 'Manrope', sans-serif; font-size: 36px; font-weight: 700; margin-bottom: 12px; line-height: 1.1; }
-        .subtitle { color: var(--text-muted); font-size: 16px; line-height: 1.5; margin-bottom: 32px; }
-        .form-group { margin-bottom: 24px; }
-        label { display: block; margin-bottom: 10px; font-size: 14px; font-weight: 500; }
-        input, select {
-            width: 100%; padding: 16px 18px; background: rgba(11, 13, 23, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px;
-            color: var(--text-white); font-family: 'Inter', sans-serif; font-size: 15px;
-            transition: all 0.3s ease;
+
+        h1 { font-family:'Manrope',sans-serif; font-size:36px; font-weight:700; margin-bottom:12px; line-height:1.1; }
+        .subtitle { color:var(--text-muted); font-size:16px; line-height:1.5; margin-bottom:32px; }
+
+        .form-group { margin-bottom:24px; position:relative; }
+        label { display:block; margin-bottom:10px; font-size:14px; font-weight:500; }
+
+        /* === СТИЛИ ДЛЯ ТЕКСТОВЫХ ПОЛЕЙ === */
+        input {
+            width:100%; padding:16px 18px;
+            background:rgba(11,13,23,0.6);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:12px;
+            color:var(--text-white); font-family:'Inter',sans-serif; font-size:15px;
+            transition:all 0.3s ease;
         }
-        input:focus, select:focus {
-            outline: none; border-color: var(--accent-purple);
-            box-shadow: 0 0 0 4px rgba(108, 93, 211, 0.15), 0 0 15px rgba(108, 93, 211, 0.2);
-            background: rgba(26, 30, 46, 0.8);
+        input:focus {
+            outline:none; border-color:var(--accent-purple);
+            box-shadow:0 0 0 4px rgba(108,93,211,0.15), 0 0 15px rgba(108,93,211,0.2);
+            background:rgba(26,30,46,0.8);
         }
-        input::placeholder { color: rgba(255, 255, 255, 0.3); }
-        select option { background: var(--bg-card); }
+        input::placeholder { color:rgba(255,255,255,0.3); }
+
+        /* === ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ SELECT === */
+        select {
+            width:100%; padding:16px 44px 16px 18px; /* Отступ справа под стрелку */
+            background:rgba(11,13,23,0.6);
+            border:1px solid rgba(255,255,255,0.1);
+            border-radius:12px;
+            color:var(--text-white); font-family:'Inter',sans-serif; font-size:15px;
+            transition:all 0.3s ease;
+            cursor:pointer;
+            
+            /* УБИРАЕМ СТАНДАРТНЫЕ СТРЕЛКИ БРАУЗЕРА */
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            
+            /* РИСУЕМ ОДНУ НАШУ СТРЕЛКУ */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236C5DD3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            background-size: 20px;
+        }
+
+        /* Убираем синюю обводку браузера при клике */
+        select:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 4px rgba(108, 93, 211, 0.15);
+        }
+        
+        select option {
+            background: var(--bg-card);
+            color: var(--text-white);
+        }
+
+        /* === ВАЛИДАЦИЯ: ЗЕЛЕНАЯ РАМКА (только для обязательных полей) === */
+        .input-success {
+            border-color: var(--accent-green) !important;
+            box-shadow: 0 0 0 4px rgba(0, 249, 163, 0.15), 0 0 20px rgba(0, 249, 163, 0.25) !important;
+            background-color: rgba(0, 249, 163, 0.03) !important;
+        }
+        /* Меняем стрелку на зеленую */
+        select.input-success {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2300F9A3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+        }
+
+        /* === ВАЛИДАЦИЯ: КРАСНАЯ РАМКА === */
+        .input-error {
+            border-color: var(--error-red) !important;
+            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.15), 0 0 20px rgba(255, 71, 87, 0.25) !important;
+            background-color: rgba(255, 71, 87, 0.03) !important;
+        }
+        /* Меняем стрелку на красную */
+        select.input-error {
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23FF4757' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+        }
+
+        /* Текст ошибки */
+        .error-message {
+            position:absolute; bottom:-20px; left:4px; font-size:12px; color:var(--error-red);
+            opacity:0; transform:translateY(-5px); transition:all 0.2s ease; pointer-events:none;
+        }
+        .error-message.show { opacity:1; transform:translateY(0); }
+
+        /* Кнопки */
         .btn {
-            width: 100%; padding: 18px; background: transparent;
-            border: 1px solid var(--accent-purple); border-radius: 12px;
-            color: var(--text-white); font-family: 'Manrope', sans-serif;
-            font-size: 16px; font-weight: 700; cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(108, 93, 211, 0.15), inset 0 0 10px rgba(108, 93, 211, 0.05);
-            text-decoration: none; display: inline-block; text-align: center; margin-top: 12px;
+            width:100%; padding:18px; background:transparent;
+            border:1px solid var(--accent-purple); border-radius:12px;
+            color:var(--text-white); font-family:'Manrope',sans-serif;
+            font-size:16px; font-weight:700; cursor:pointer;
+            transition:all 0.3s ease;
+            box-shadow:0 0 15px rgba(108,93,211,0.15), inset 0 0 10px rgba(108,93,211,0.05);
+            text-decoration:none; display:inline-block; text-align:center; margin-top:12px;
         }
         .btn:hover {
-            border-color: var(--accent-cyan); color: var(--accent-cyan);
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.35), inset 0 0 15px rgba(0, 212, 255, 0.1);
-            transform: translateY(-2px);
+            border-color:var(--accent-cyan); color:var(--accent-cyan);
+            box-shadow:0 0 25px rgba(0,212,255,0.35), inset 0 0 15px rgba(0,212,255,0.1);
+            transform:translateY(-2px);
         }
-        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-        .hidden { display: none !important; }
-        .thank-you-page { display: none; text-align: center; }
+        .btn:disabled { opacity:0.6; cursor:not-allowed; transform:none; }
+
+        .hidden { display:none !important; }
+        .thank-you-page { display:none; text-align:center; }
         .success-circle {
-            width: 80px; height: 80px; border-radius: 50%;
-            background: rgba(0, 249, 163, 0.1); border: 2px solid var(--accent-green);
-            color: var(--accent-green); display: flex; align-items: center; justify-content: center;
-            font-size: 40px; margin: 0 auto 24px; box-shadow: 0 0 20px rgba(0, 249, 163, 0.2);
+            width:80px; height:80px; border-radius:50%;
+            background:rgba(0,249,163,0.1); border:2px solid var(--accent-green);
+            color:var(--accent-green); display:flex; align-items:center; justify-content:center;
+            font-size:40px; margin:0 auto 24px; box-shadow:0 0 20px rgba(0,249,163,0.2);
         }
         .benefits {
-            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border);
-            border-radius: 16px; padding: 24px; margin: 32px 0; text-align: left;
+            background:rgba(255,255,255,0.03); border:1px solid var(--glass-border);
+            border-radius:16px; padding:24px; margin:32px 0; text-align:left;
         }
-        .benefits h3 { font-family: 'Manrope', sans-serif; margin-bottom: 16px; color: var(--accent-cyan); }
-        .benefits ul { list-style: none; color: var(--text-muted); }
-        .benefits li { padding: 8px 0; padding-left: 24px; position: relative; }
-        .benefits li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
-        @media (max-width: 640px) { .container { padding: 32px 24px; } h1 { font-size: 28px; } }
+        .benefits h3 { font-family:'Manrope',sans-serif; margin-bottom:16px; color:var(--accent-cyan); }
+        .benefits ul { list-style:none; color:var(--text-muted); }
+        .benefits li { padding:8px 0; padding-left:24px; position:relative; }
+        .benefits li::before { content:'✓'; position:absolute; left:0; color:var(--accent-green); font-weight:bold; }
+
+        @media (max-width:640px) { .container { padding:32px 24px; } h1 { font-size:28px; } }
     </style>
 </head>
 <body>
@@ -129,12 +203,31 @@
         <h1>Станьте первым</h1>
         <p class="subtitle">Получите доступ к системе контроля прибыли ProfitPulse до официального запуска. Влияйте на продукт вместе с нами.</p>
 
-        <form id="earlyAccessForm">
-            <div class="form-group"><label>Имя</label><input type="text" id="firstName" placeholder="Введите имя" required></div>
-            <div class="form-group"><label>Фамилия</label><input type="text" id="lastName" placeholder="Введите фамилию" required></div>
-            <div class="form-group"><label>Telegram</label><input type="text" id="telegram" placeholder="@username" required></div>
+        <form id="earlyAccessForm" novalidate>
+            <!-- Имя -->
             <div class="form-group">
-                <label>Ваша ниша</label>
+                <label for="firstName">Имя *</label>
+                <input type="text" id="firstName" placeholder="Введите имя" required>
+                <span class="error-message" id="firstNameError">Введите корректное имя (мин. 2 буквы)</span>
+            </div>
+            
+            <!-- Фамилия -->
+            <div class="form-group">
+                <label for="lastName">Фамилия *</label>
+                <input type="text" id="lastName" placeholder="Введите фамилию" required>
+                <span class="error-message" id="lastNameError">Введите корректную фамилию (мин. 2 буквы)</span>
+            </div>
+            
+            <!-- Telegram -->
+            <div class="form-group">
+                <label for="telegram">Telegram *</label>
+                <input type="text" id="telegram" placeholder="@username или t.me/..." required>
+                <span class="error-message" id="telegramError">Введите @username или ссылку t.me/</span>
+            </div>
+            
+            <!-- Ниша (Обязательно) -->
+            <div class="form-group">
+                <label for="industry">Ваша ниша *</label>
                 <select id="industry" required>
                     <option value="" disabled selected>Выберите специализацию</option>
                     <option value="nails">Маникюр / Педикюр</option>
@@ -143,16 +236,20 @@
                     <option value="cosmetology">Косметология</option>
                     <option value="other">Другое</option>
                 </select>
+                <span class="error-message" id="industryError">Выберите нишу</span>
             </div>
+            
+            <!-- Опыт работы (Необязательно - БЕЗ валидации) -->
             <div class="form-group">
-                <label>Опыт работы</label>
+                <label for="experience">Опыт работы</label>
                 <select id="experience">
-                    <option value="" disabled selected>Выберите вариант</option>
+                    <option value="" disabled selected>Выберите вариант (необязательно)</option>
                     <option value="newbie">Менее 1 года</option>
                     <option value="middle">1-3 года</option>
                     <option value="senior">Более 3 лет</option>
                 </select>
             </div>
+
             <button type="submit" class="btn">Получить ранний доступ →</button>
         </form>
     </div>
@@ -175,27 +272,107 @@
 
     <script>
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwjqiEn5ZbdWFY2FKPNXGOjftnfCnqqQg7t9h7yEFUbW9FNPzHEkWIHv7HsvcYVgUoa/exec';
+        
+        // Поля, которые НУЖНО валидировать
+        const fields = {
+            firstName: { 
+                input: document.getElementById('firstName'), 
+                error: document.getElementById('firstNameError'),
+                validate: (val) => /^[a-zA-Zа-яА-ЯёЁ\-]{2,}$/.test(val)
+            },
+            lastName: { 
+                input: document.getElementById('lastName'), 
+                error: document.getElementById('lastNameError'),
+                validate: (val) => /^[a-zA-Zа-яА-ЯёЁ\-]{2,}$/.test(val)
+            },
+            telegram: { 
+                input: document.getElementById('telegram'), 
+                error: document.getElementById('telegramError'),
+                validate: (val) => {
+                    const atPattern = /^@[\w\d_]{3,}$/;
+                    const linkPattern = /^(https?:\/\/)?(www\.)?t\.me\/[\w\d_]{3,}\/?$/i;
+                    return atPattern.test(val) || linkPattern.test(val);
+                }
+            },
+            industry: { 
+                input: document.getElementById('industry'), 
+                error: document.getElementById('industryError'),
+                validate: (val) => val !== ''
+            }
+            // Поле experience ИСКЛЮЧЕНО отсюда, чтобы на нем не было зеленых/красных рамок
+        };
+
+        function updateFieldState(fieldKey, isValid) {
+            const field = fields[fieldKey];
+            if (!field) return;
+            
+            field.input.classList.remove('input-success', 'input-error');
+            if (field.error) field.error.classList.remove('show');
+            
+            if (isValid && field.input.value.trim() !== '') {
+                field.input.classList.add('input-success');
+            } else if (!isValid && field.input.value.trim() !== '') {
+                field.input.classList.add('input-error');
+                if (field.error) field.error.classList.add('show');
+            }
+        }
+
+        Object.keys(fields).forEach(key => {
+            const field = fields[key];
+            
+            field.input.addEventListener('input', () => {
+                const isValid = field.validate(field.input.value);
+                updateFieldState(key, isValid);
+            });
+            field.input.addEventListener('change', () => {
+                const isValid = field.validate(field.input.value);
+                updateFieldState(key, isValid);
+            });
+            
+            field.input.addEventListener('focus', () => {
+                if (field.error) field.error.classList.remove('show');
+            });
+        });
 
         document.getElementById('earlyAccessForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            let allValid = true;
+            
+            Object.keys(fields).forEach(key => {
+                const field = fields[key];
+                const isValid = field.validate(field.input.value);
+                updateFieldState(key, isValid);
+                if (!isValid) allValid = false;
+            });
+            
+            if (!allValid) {
+                const firstError = document.querySelector('.input-error');
+                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+            
             const btn = document.querySelector('.btn');
+            const originalText = btn.innerText;
             btn.innerText = 'Отправка...';
             btn.disabled = true;
 
             const formData = {
-                firstName: document.getElementById('firstName').value,
-                lastName: document.getElementById('lastName').value,
-                telegram: document.getElementById('telegram').value,
-                industry: document.getElementById('industry').value,
+                firstName: fields.firstName.input.value.trim(),
+                lastName: fields.lastName.input.value.trim(),
+                telegram: fields.telegram.input.value.trim(),
+                industry: fields.industry.input.value,
                 experience: document.getElementById('experience').value
             };
 
-            fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) })
+            fetch(GOOGLE_SCRIPT_URL, { 
+                method: 'POST', mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' }, 
+                body: JSON.stringify(formData) 
+            })
             .then(() => {
                 document.getElementById('registrationForm').classList.add('hidden');
                 document.getElementById('thankYouPage').style.display = 'block';
                 
-                // 🔥 ОТПРАВКА СОБЫТИЯ "LEAD" В FACEBOOK
                 if(typeof fbq !== 'undefined') {
                     fbq('track', 'Lead', {
                         content_name: 'ProfitPulse Early Access',
@@ -203,9 +380,11 @@
                     });
                 }
             })
-            .catch(() => {
-                btn.innerText = 'Попробовать снова';
+            .catch((err) => {
+                console.error('Error:', err);
+                btn.innerText = originalText;
                 btn.disabled = false;
+                alert('Ошибка отправки. Попробуйте ещё раз.');
             });
         });
 
