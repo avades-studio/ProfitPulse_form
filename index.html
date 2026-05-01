@@ -14,11 +14,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '602816120339079');
+    fbq('init', '1367514358548638');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=602816120339079&ev=PageView&noscript=1"/></noscript>
+    src="https://www.facebook.com/tr?id=1367514358548638&ev=PageView&noscript=1"/></noscript>
     <!-- FACEBOOK PIXEL END -->
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,39 +92,55 @@
         }
         input::placeholder { color:rgba(255,255,255,0.3); }
 
-        /* === ИСПРАВЛЕННЫЕ СТИЛИ ДЛЯ SELECT === */
-        select {
-            width:100%; padding:16px 44px 16px 18px; /* Отступ справа под стрелку */
-            background:rgba(11,13,23,0.6);
-            border:1px solid rgba(255,255,255,0.1);
-            border-radius:12px;
-            color:var(--text-white); font-family:'Inter',sans-serif; font-size:15px;
-            transition:all 0.3s ease;
-            cursor:pointer;
-            
-            /* УБИРАЕМ СТАНДАРТНЫЕ СТРЕЛКИ БРАУЗЕРА */
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            
-            /* РИСУЕМ ОДНУ НАШУ СТРЕЛКУ */
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236C5DD3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            background-size: 20px;
-        }
+      /* === СТИЛИ ДЛЯ SELECT (одинаковые для всех списков) === */
+select {
+    width:100%; padding:16px 44px 16px 18px;
+    background:rgba(11,13,23,0.6);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:12px;
+    color:var(--text-white); font-family:'Inter',sans-serif; font-size:15px;
+    transition:all 0.3s ease;
+    cursor:pointer;
+    
+    /* Убираем стандартные стрелки браузера */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    
+    /* Наша стрелка — фиолетовая по умолчанию */
+    background-image: url("image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%236C5DD3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 20px;
+}
 
-        /* Убираем синюю обводку браузера при клике */
-        select:focus {
-            outline: none;
-            border-color: var(--accent-purple);
-            box-shadow: 0 0 0 4px rgba(108, 93, 211, 0.15);
-        }
-        
-        select option {
-            background: var(--bg-card);
-            color: var(--text-white);
-        }
+/* Убираем синюю обводку браузера */
+select:focus {
+    outline: none;
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 0 4px rgba(108, 93, 211, 0.15);
+}
+
+select option {
+    background: var(--bg-card);
+    color: var(--text-white);
+}
+
+/* Зеленая рамка + зеленая стрелка */
+select.input-success {
+    border-color: var(--accent-green) !important;
+    box-shadow: 0 0 0 4px rgba(0, 249, 163, 0.15), 0 0 20px rgba(0, 249, 163, 0.25) !important;
+    background-color: rgba(0, 249, 163, 0.03) !important;
+    background-image: url("image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2300F9A3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+}
+
+/* Красная рамка + красная стрелка */
+select.input-error {
+    border-color: var(--error-red) !important;
+    box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.15), 0 0 20px rgba(255, 71, 87, 0.25) !important;
+    background-color: rgba(255, 71, 87, 0.03) !important;
+    background-image: url("image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23FF4757' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+}
 
         /* === ВАЛИДАЦИЯ: ЗЕЛЕНАЯ РАМКА (только для обязательных полей) === */
         .input-success {
